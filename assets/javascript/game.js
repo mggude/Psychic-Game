@@ -1,5 +1,7 @@
-// Possible computer choices
+// Possible computer/user choices
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var userChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
 
 // Counters for wins, losses, remaining guesses, letters already guessed
 var wins = 0;
@@ -7,9 +9,9 @@ var losses = 0;
 var guessesRemaining = 10;
 var lettersGuessed = [];
 var computerChoice;
-var userGuess;
+var userGuess = [];
 
-// computer picks a random letter
+
 
 function resetGame() {
     guessesRemaining = 10;
@@ -23,6 +25,7 @@ psychicGame();
 
 function psychicGame() {
 
+    // computer picks a random letter
     var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)]; {
     console.log(computerChoice);
 
@@ -45,7 +48,7 @@ function psychicGame() {
                     losses++;
                     document.getElementById ("losses").textContent = losses;
                     resetGame();
-                } else if (lettersGuessed.indexOf(userGuess)) {
+                } else if (userGuess.indexOf(lettersGuessed)) {
                     alert("You already guessed that!")
                 }
             }
